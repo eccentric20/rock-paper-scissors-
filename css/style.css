@@ -177,3 +177,18 @@ h2{
     font-size: 1.5rem;
   }
 }
+
+#mid-screen{
+  display: flex;
+  flex-direction: row;
+}
+
+#user-choice{
+  margin-right: 100px;
+  margin-top: 50px;
+}
+
+#cpu-choice{
+  margin-left: 100px;
+  margin-top: 50px;
+}

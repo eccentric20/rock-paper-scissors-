@@ -59,32 +59,98 @@ function play(userChoice) {
     case 'paperrock':
     case 'scissorspaper':
       win(userChoice, cpuChoice);
+      return cpuChoice;
       break;
     case 'rockpaper':
     case 'paperscissors':
     case 'scissorsrock':
       lose(userChoice, cpuChoice);
+      return cpuChoice;
       break;
     case 'rockrock':
     case 'paperpaper':
     case 'scissorsscissors':
       draw(userChoice, cpuChoice);
+      return cpuChoice;
       break;
   }
+
+  
 }
 
 
 function main() {
   rock_div.addEventListener('click', function() {
-    play('rock');
+    const getCh = play('rock');
+    
+    const userChoice = document.getElementById('user-choice');
+
+    const img = document.createElement("img");
+    img.src = "./images/rock.png";
+    userChoice.appendChild(img);
+
+    const cpuChoice = document.getElementById('cpu-choice');
+    
+    const img2 = document.createElement("img");
+    img2.src = "./images/" + getCh + ".png";
+    cpuChoice.appendChild(img2);
+    setTimeout(() => {
+      userChoice.removeChild(img);
+    }, 1000);
+
+    setTimeout(() => {
+      cpuChoice.removeChild(img2);
+    }, 1000);
+    
+    
+
+    
   })
   
   paper_div.addEventListener('click', function() {
-    play('paper');
+    const getCh = play('paper');
+    
+    const userChoice = document.getElementById('user-choice');
+
+    const img = document.createElement("img");
+    img.src = "./images/paper.png";
+    userChoice.appendChild(img);
+
+    const cpuChoice = document.getElementById('cpu-choice');
+    
+    const img2 = document.createElement("img");
+    img2.src = "./images/" + getCh + ".png";
+    cpuChoice.appendChild(img2);
+    setTimeout(() => {
+      userChoice.removeChild(img);
+    }, 1000);
+
+    setTimeout(() => {
+      cpuChoice.removeChild(img2);
+    }, 1000);
   })
   
   scissors_div.addEventListener('click', function() {
-    play('scissors');
+    const getCh = play('scissors');
+    
+    const userChoice = document.getElementById('user-choice');
+
+    const img = document.createElement("img");
+    img.src = "./images/scissors.png";
+    userChoice.appendChild(img);
+
+    const cpuChoice = document.getElementById('cpu-choice');
+    
+    const img2 = document.createElement("img");
+    img2.src = "./images/" + getCh + ".png";
+    cpuChoice.appendChild(img2);
+    setTimeout(() => {
+      userChoice.removeChild(img);
+    }, 1000);
+
+    setTimeout(() => {
+      cpuChoice.removeChild(img2);
+    }, 1000);
   })
 }
 
@@ -108,6 +174,7 @@ function restartGame(){
   cpuScore = 0;
   userScore_span.innerHTML = userScore;
   cpuScore_span.innerHTML = cpuScore;
+  
 }
 
 restart.addEventListener('click', restartGame);
